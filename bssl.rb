@@ -6,8 +6,8 @@ class Bssl < Formula
   sha256 "ee6e653f86018ec3731527c89ef36f474c0ba812d52fbd53443001e10404d35f"
 
   depends_on "cmake"
-  depends_on "ninja"
   depends_on "go"
+  depends_on "ninja"
 
   def install
     mkdir "build" do
