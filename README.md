@@ -1,9 +1,7 @@
-# Hi-artem Boringssl
+# boringssl 
 
-## How do I install these formulae?
-`brew install hi-artem/boringssl/<formula>`
+Allows you to install [boringssl](https://boringssl.googlesource.com/boringssl/) via [Homebrew](https://brew.sh):
 
-Or `brew tap hi-artem/boringssl` and then `brew install <formula>`.
-
-## Documentation
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+```bash
+$ brew install hi-artem/boringssl/bssl
+```
