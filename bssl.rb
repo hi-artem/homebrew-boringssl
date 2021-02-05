@@ -3,22 +3,23 @@
 class Bssl< Formula
   homepage "https://boringssl.googlesource.com/boringssl/"
   desc "BoringSSL is a fork of OpenSSL that is designed to meet Google's needs."
-  url "https://boringssl.googlesource.com/boringssl/+archive/1607f54fed72c6589d560254626909a64124f091.tar"
+  url "https://boringssl.googlesource.com/boringssl/+archive/1607f54fed72c6589d560254626909a64124f091.tar.gz"
   version "1607f54fed72c6589d560254626909a64124f091"
-  sha256 "4e0e20666af36055451cfa46193269d44924e485678161fc039b8cbdc64e486d"
+  sha256 "ee6e653f86018ec3731527c89ef36f474c0ba812d52fbd53443001e10404d35f"
 
   depends_on "go"
   depends_on "cmake"
   depends_on "ninja" 
 
   def install
-    system "mkdir", "build"
-    system "cd", "build"
-    system "cmake", "-GNinja", ".."
-    system "ninja"
+    mkdir "build" do
+      system "cmake", "-GNinja", ".."
+      system "ninja"
+      bin.install "tool/bssl"
+    end
   end
 
   test do
-    assert_match "bk #{version}", shell_output("#{bin}/bk --version 2>&1")
+    assert_match "0", shell_output("#{bin}/bssl isfips 2>&1")
   end
 end
